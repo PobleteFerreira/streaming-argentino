@@ -190,6 +190,13 @@ const map=L.map("map",{center:[-38.5,-64],zoom:4,minZoom:3,maxZoom:13});
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(map);
 const layer=L.layerGroup().addTo(map);
 
+// Etiqueta soberana — Islas Malvinas
+const malvinasIcon = L.divIcon({
+  html: `<div style="font-family:'Syne',sans-serif;font-size:10px;font-weight:700;color:#8899cc;letter-spacing:.04em;white-space:nowrap;text-shadow:0 1px 3px #000,0 0 6px #000">Islas Malvinas</div>`,
+  iconSize: [110, 16], iconAnchor: [55, 8], className: ""
+});
+L.marker([-51.7, -59.0], { icon: malvinasIcon, interactive: false, zIndexOffset: -1000 }).addTo(map);
+
 let allChannels=[],filters={prov:"",cat:"",search:"",medio:new Set()};
 
 function createMarker(row){
